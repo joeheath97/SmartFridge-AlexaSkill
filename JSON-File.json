@@ -1,0 +1,620 @@
+{
+	"interactionModel": {
+		"languageModel": {
+			"invocationName": "my fridge",
+			"modelConfiguration": {
+				"fallbackIntentSensitivity": {
+					"level": "LOW"
+				}
+			},
+			"intents": [
+				{
+					"name": "AMAZON.CancelIntent",
+					"samples": []
+				},
+				{
+					"name": "AMAZON.HelpIntent",
+					"samples": []
+				},
+				{
+					"name": "AMAZON.StopIntent",
+					"samples": []
+				},
+				{
+					"name": "HelloWorldIntent",
+					"slots": [],
+					"samples": [
+						"hello",
+						"how are you",
+						"say hi world",
+						"say hi",
+						"hi",
+						"say hello world",
+						"say hello"
+					]
+				},
+				{
+					"name": "AMAZON.NavigateHomeIntent",
+					"samples": []
+				},
+				{
+					"name": "AMAZON.FallbackIntent",
+					"samples": []
+				},
+				{
+					"name": "GetRecipeIntent",
+					"slots": [
+						{
+							"name": "FoodType",
+							"type": "FoodType",
+							"samples": [
+								"{FoodType}"
+							]
+						}
+					],
+					"samples": [
+						"find me a recipe ",
+						"find a recipe",
+						"find a low-calarie {FoodType} recipe ",
+						"find a healthy {FoodType} recipe ",
+						"find a quick {FoodType} recipe ",
+						"find a {FoodType} recipe",
+						"find recipe for {FoodType}",
+						"find recipe with {FoodType}"
+					]
+				},
+				{
+					"name": "OpenFoodIntent",
+					"slots": [
+						{
+							"name": "FoodType",
+							"type": "FoodType",
+							"samples": [
+								"{FoodType}"
+							]
+						}
+					],
+					"samples": [
+						"the {FoodType} has been opened",
+						"the {FoodType} is open",
+						"To open",
+						"Open",
+						"I just opened the {FoodType}",
+						"mark {FoodType} as open",
+						"{FoodType} has been opened",
+						"open {FoodType}",
+						"{FoodType} is open",
+						"i've opened {FoodType}"
+					]
+				},
+				{
+					"name": "RemoveFoodIntent",
+					"slots": [
+						{
+							"name": "FoodType",
+							"type": "FoodType",
+							"samples": [
+								"{FoodType}"
+							]
+						},
+						{
+							"name": "Number",
+							"type": "AMAZON.NUMBER",
+							"samples": [
+								"{Number}"
+							]
+						}
+					],
+					"samples": [
+						"to remove",
+						"remove {Number} {FoodType} from fridge ",
+						"remove {FoodType} from fridge",
+						"to remove the {FoodType} from fridge ",
+						"to remove {FoodType} from fridge ",
+						"to remove the {FoodType}",
+						"to remove {FoodType}",
+						"remove {FoodType}",
+						"remove food from fridge"
+					]
+				},
+				{
+					"name": "ExpireFoodIntent",
+					"slots": [
+						{
+							"name": "FoodType",
+							"type": "FoodType",
+							"samples": [
+								"{FoodType}"
+							]
+						},
+						{
+							"name": "Date",
+							"type": "AMAZON.DATE",
+							"samples": [
+								"{Date}"
+							]
+						}
+					],
+					"samples": [
+						"the {FoodType} expires {Date}",
+						"{FoodType} expires {Date}",
+						"food expires",
+						"the {FoodType} goes off on {Date}",
+						"{FoodType} is out of date on {Date}",
+						"the {FoodType} is out of date on {Date}",
+						"{FoodType} goes out of date on {Date}",
+						"the {FoodType} goes out of date on {Date}",
+						"{FoodType} expires on {Date}",
+						"the {FoodType} expires on {Date}"
+					]
+				},
+				{
+					"name": "AddFoodIntent",
+					"slots": [
+						{
+							"name": "FoodType",
+							"type": "FoodType",
+							"samples": [
+								"{FoodType}"
+							]
+						},
+						{
+							"name": "Number",
+							"type": "AMAZON.NUMBER",
+							"samples": [
+								"{Number}"
+							]
+						}
+					],
+					"samples": [
+						"to add {Number} {FoodType} to fridge",
+						"to add {FoodType} to fridge ",
+						"add {Number} {FoodType}",
+						"add {Number} {FoodType}  to fridge",
+						"add {FoodType} to fridge ",
+						"add {FoodType}",
+						"add food to fridge "
+					]
+				},
+				{
+					"name": "ListOfOpenFoodIntent",
+					"slots": [],
+					"samples": [
+						"what food is open ",
+						"what's open",
+						"what is open in the fridge "
+					]
+				},
+				{
+					"name": "GetLastRecipeIntent",
+					"slots": [],
+					"samples": [
+						"to get my last recipe ",
+						"What was my last recipe"
+					]
+				},
+				{
+					"name": "PutFoodBackIntent",
+					"slots": [],
+					"samples": [
+						"put the last food removed back into the fridge"
+					]
+				}
+			],
+			"types": [
+				{
+					"name": "FoodType",
+					"values": [
+						{
+							"name": {
+								"value": "eggs"
+							}
+						},
+						{
+							"name": {
+								"value": "beef"
+							}
+						},
+						{
+							"name": {
+								"value": "pork"
+							}
+						},
+						{
+							"name": {
+								"value": "chicken"
+							}
+						},
+						{
+							"name": {
+								"value": "bread"
+							}
+						},
+						{
+							"name": {
+								"value": "cheese"
+							}
+						},
+						{
+							"name": {
+								"value": "milk"
+							}
+						},
+						{
+							"name": {
+								"value": "butter"
+							}
+						}
+					]
+				}
+			]
+		},
+		"dialog": {
+			"intents": [
+				{
+					"name": "GetRecipeIntent",
+					"confirmationRequired": false,
+					"prompts": {},
+					"slots": [
+						{
+							"name": "FoodType",
+							"type": "FoodType",
+							"confirmationRequired": true,
+							"elicitationRequired": true,
+							"prompts": {
+								"confirmation": "Confirm.Slot.263897024123.1185498099789",
+								"elicitation": "Elicit.Slot.263897024123.1185498099789"
+							},
+							"validations": [
+								{
+									"type": "hasEntityResolutionMatch",
+									"prompt": "Slot.Validation.263897024123.1185498099789.1030785359108"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "OpenFoodIntent",
+					"confirmationRequired": false,
+					"prompts": {},
+					"slots": [
+						{
+							"name": "FoodType",
+							"type": "FoodType",
+							"confirmationRequired": true,
+							"elicitationRequired": true,
+							"prompts": {
+								"confirmation": "Confirm.Slot.1029248750928.849704824574",
+								"elicitation": "Elicit.Slot.1029248750928.849704824574"
+							},
+							"validations": [
+								{
+									"type": "hasEntityResolutionMatch",
+									"prompt": "Slot.Validation.1029248750928.849704824574.328452182061"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "RemoveFoodIntent",
+					"confirmationRequired": false,
+					"prompts": {},
+					"slots": [
+						{
+							"name": "FoodType",
+							"type": "FoodType",
+							"confirmationRequired": true,
+							"elicitationRequired": true,
+							"prompts": {
+								"confirmation": "Confirm.Slot.1229541715555.1460476228913",
+								"elicitation": "Elicit.Slot.1229541715555.1460476228913"
+							},
+							"validations": [
+								{
+									"type": "hasEntityResolutionMatch",
+									"prompt": "Slot.Validation.1229541715555.1460476228913.1588712655101"
+								}
+							]
+						},
+						{
+							"name": "Number",
+							"type": "AMAZON.NUMBER",
+							"confirmationRequired": false,
+							"elicitationRequired": true,
+							"prompts": {
+								"elicitation": "Elicit.Slot.1265128138039.1008415363797"
+							},
+							"validations": [
+								{
+									"type": "isGreaterThan",
+									"prompt": "Slot.Validation.971088461528.40021619685.886541059960",
+									"value": "0"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "ExpireFoodIntent",
+					"confirmationRequired": false,
+					"prompts": {},
+					"slots": [
+						{
+							"name": "FoodType",
+							"type": "FoodType",
+							"confirmationRequired": true,
+							"elicitationRequired": true,
+							"prompts": {
+								"confirmation": "Confirm.Slot.1300216825703.139514160099",
+								"elicitation": "Elicit.Slot.1300216825703.139514160099"
+							},
+							"validations": [
+								{
+									"type": "hasEntityResolutionMatch",
+									"prompt": "Slot.Validation.1300216825703.139514160099.1223533227405"
+								}
+							]
+						},
+						{
+							"name": "Date",
+							"type": "AMAZON.DATE",
+							"confirmationRequired": false,
+							"elicitationRequired": true,
+							"prompts": {
+								"elicitation": "Elicit.Slot.1300216825703.1222052371962"
+							}
+						}
+					]
+				},
+				{
+					"name": "AddFoodIntent",
+					"confirmationRequired": false,
+					"prompts": {},
+					"slots": [
+						{
+							"name": "FoodType",
+							"type": "FoodType",
+							"confirmationRequired": true,
+							"elicitationRequired": true,
+							"prompts": {
+								"confirmation": "Confirm.Slot.1303275554496.1181885148800",
+								"elicitation": "Elicit.Slot.1303275554496.1181885148800"
+							},
+							"validations": [
+								{
+									"type": "hasEntityResolutionMatch",
+									"prompt": "Slot.Validation.1253531478048.437913731990.638973003336"
+								}
+							]
+						},
+						{
+							"name": "Number",
+							"type": "AMAZON.NUMBER",
+							"confirmationRequired": false,
+							"elicitationRequired": true,
+							"prompts": {
+								"elicitation": "Elicit.Slot.1303275554496.462221924044"
+							}
+						}
+					]
+				}
+			],
+			"delegationStrategy": "ALWAYS"
+		},
+		"prompts": [
+			{
+				"id": "Slot.Validation.37134415597.426056786532.1543051367137",
+				"variations": [
+					{
+						"type": "PlainText",
+						"value": "I dont recognise that type of meet"
+					}
+				]
+			},
+			{
+				"id": "Elicit.Slot.263897024123.1185498099789",
+				"variations": [
+					{
+						"type": "PlainText",
+						"value": "Ok, what kind of food are you feeling?"
+					},
+					{
+						"type": "PlainText",
+						"value": "Ok, I'll find a recipe for?"
+					}
+				]
+			},
+			{
+				"id": "Confirm.Slot.263897024123.1185498099789",
+				"variations": [
+					{
+						"type": "PlainText",
+						"value": "{FoodType} , is that right?"
+					}
+				]
+			},
+			{
+				"id": "Slot.Validation.263897024123.1185498099789.1030785359108",
+				"variations": [
+					{
+						"type": "PlainText",
+						"value": "Sorry, I don't know that food type, try again."
+					}
+				]
+			},
+			{
+				"id": "Elicit.Slot.1029248750928.849704824574",
+				"variations": [
+					{
+						"type": "PlainText",
+						"value": "Ok, What has been opened?"
+					}
+				]
+			},
+			{
+				"id": "Confirm.Slot.1029248750928.849704824574",
+				"variations": [
+					{
+						"type": "PlainText",
+						"value": "{FoodType} , is that right?"
+					}
+				]
+			},
+			{
+				"id": "Slot.Validation.1029248750928.849704824574.328452182061",
+				"variations": [
+					{
+						"type": "PlainText",
+						"value": "Sorry, I don't know that food type, try again."
+					}
+				]
+			},
+			{
+				"id": "Elicit.Slot.1229541715555.1460476228913",
+				"variations": [
+					{
+						"type": "PlainText",
+						"value": "Ok, What would you like to remove?"
+					}
+				]
+			},
+			{
+				"id": "Confirm.Slot.1229541715555.1460476228913",
+				"variations": [
+					{
+						"type": "PlainText",
+						"value": "{FoodType} , is that right?"
+					}
+				]
+			},
+			{
+				"id": "Slot.Validation.1229541715555.1460476228913.1588712655101",
+				"variations": [
+					{
+						"type": "PlainText",
+						"value": "Sorry, I don't know that food type, try again."
+					}
+				]
+			},
+			{
+				"id": "Slot.Validation.1300216825703.139514160099.1223533227405",
+				"variations": [
+					{
+						"type": "PlainText",
+						"value": "Sorry, I don't know that food type, try again."
+					}
+				]
+			},
+			{
+				"id": "Elicit.Slot.1300216825703.1222052371962",
+				"variations": [
+					{
+						"type": "PlainText",
+						"value": "Ok, {FoodType} expires when?"
+					}
+				]
+			},
+			{
+				"id": "Elicit.Slot.1300216825703.139514160099",
+				"variations": [
+					{
+						"type": "PlainText",
+						"value": "What Type of food?"
+					}
+				]
+			},
+			{
+				"id": "Confirm.Slot.1300216825703.139514160099",
+				"variations": [
+					{
+						"type": "PlainText",
+						"value": "{FoodType} , is that right?"
+					}
+				]
+			},
+			{
+				"id": "Confirm.Slot.1300216825703.1222052371962",
+				"variations": [
+					{
+						"type": "PlainText",
+						"value": "{Date} , is that right?"
+					}
+				]
+			},
+			{
+				"id": "Elicit.Slot.1265128138039.1008415363797",
+				"variations": [
+					{
+						"type": "PlainText",
+						"value": "Ok, how many {FoodType} would you like to remove?"
+					}
+				]
+			},
+			{
+				"id": "Confirm.Slot.1265128138039.1008415363797",
+				"variations": [
+					{
+						"type": "PlainText",
+						"value": "{Number} , is this right?"
+					}
+				]
+			},
+			{
+				"id": "Elicit.Slot.1303275554496.1181885148800",
+				"variations": [
+					{
+						"type": "PlainText",
+						"value": "Ok, what food would you like to add?"
+					}
+				]
+			},
+			{
+				"id": "Confirm.Slot.1303275554496.1181885148800",
+				"variations": [
+					{
+						"type": "PlainText",
+						"value": "{FoodType} , is this right?"
+					}
+				]
+			},
+			{
+				"id": "Elicit.Slot.1303275554496.462221924044",
+				"variations": [
+					{
+						"type": "PlainText",
+						"value": "Ok, how many {FoodType}  would you like to add?"
+					}
+				]
+			},
+			{
+				"id": "Confirm.Slot.1303275554496.462221924044",
+				"variations": [
+					{
+						"type": "PlainText",
+						"value": "{Number} , is this right?"
+					}
+				]
+			},
+			{
+				"id": "Slot.Validation.1253531478048.437913731990.638973003336",
+				"variations": [
+					{
+						"type": "PlainText",
+						"value": "Sorry, I don't know that food type, try again."
+					}
+				]
+			},
+			{
+				"id": "Slot.Validation.971088461528.40021619685.886541059960",
+				"variations": [
+					{
+						"type": "PlainText",
+						"value": "Sorry, quantity must be more than zero."
+					}
+				]
+			}
+		]
+	}
+}
